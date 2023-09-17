@@ -9,7 +9,7 @@
 - Java 11
 - Have opened Dreambot at least once
 - Have the new Jagex launcher installed and setup alongside either RuneLite[^1] or HDOS[^1].
-
+- Must be running on Windows. No Mac/Linux support.
 [^1]: This will replace the chosen client with DreamBot. If you want to use either one again, you will need to reinstall it.
 
 
