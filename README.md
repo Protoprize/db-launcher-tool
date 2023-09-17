@@ -1,5 +1,6 @@
 ## DB Launcher Tool by Proto
----
+
+
 #### Allows you to use the new Jagex launcher with DreamBot
 
 <img src="https://github.com/Protoprize/db-launcher-tool/assets/64224090/dc91ebe5-2dec-464d-958d-3d114f948f70" width=50% height=50%>
