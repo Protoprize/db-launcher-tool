@@ -14,10 +14,12 @@ import java.util.List;
 
 public class Main {
 
-    public static void replaceLauncher(String dbPath, String launcherPath, String launcherType,
+    public static void replaceLauncher(Boolean useLauncherPath,String dbPath, String launcherPath, String launcherType,
                                        String launcherArgs, Boolean cli) throws IOException {
-        String manualLauncher = launcherPath;
-        if (launcherPath.isEmpty()) {
+        String manualLauncher;
+        if(useLauncherPath){
+            manualLauncher = launcherPath;
+        } else {
             String userHome = System.getProperty("user.home");
 
             switch (launcherType) {
@@ -35,21 +37,20 @@ public class Main {
                     File runeLitePath = new File(userHome, "AppData/Local/RuneLite/RuneLite.jar");
 
                     if (runeLitePath.exists()) {
-                            manualLauncher = runeLitePath.getAbsolutePath();
+                        manualLauncher = runeLitePath.getAbsolutePath();
                     } else {
                         throw new IOException("RuneLite not found");
                     }
                     break;
 
                 default:
-                    // TODO: Add warning box
+                    throw new RuntimeException("Unknown launcher type");
             }
-
-            try {
-                updateFilesLauncher(cli, dbPath, manualLauncher, launcherArgs);
-            } catch (URISyntaxException e) {
-                throw new RuntimeException(e);
-            }
+        }
+        try {
+            updateFilesLauncher(cli, dbPath, manualLauncher, launcherArgs);
+        } catch (URISyntaxException e) {
+            throw new RuntimeException("Failed to update files");
         }
     }
 
@@ -57,7 +58,9 @@ public class Main {
             throws IOException, URISyntaxException {
         Gson gson = new Gson();
         if (cli) {
-
+            if (!dest.endsWith(".jar")) {
+                throw new RuntimeException("Could not find target jar file");
+            }
             source = new File(Main.class.getProtectionDomain().getCodeSource().getLocation()
                     .toURI().getPath()).getAbsoluteFile().toString().replace("db-launcher-tool.jar",
                     "db-cli-forwarder.jar");
