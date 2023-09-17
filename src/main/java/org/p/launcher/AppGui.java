@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.NoSuchFileException;
 import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
@@ -142,7 +143,7 @@ public class AppGui extends javax.swing.JFrame {
             }
         });
 
-        text_cli.setText("-covert, -debug");
+        text_cli.setText("-covert -debug");
         text_cli.setEnabled(false);
 
         button_docs.setText("Find out more");
@@ -302,14 +303,36 @@ public class AppGui extends javax.swing.JFrame {
     }//GEN-LAST:event_button_docsActionPerformed
 
     private void button_button_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_button_startActionPerformed
+        String message = "";
         try {
             if(radio_cliargs.isSelected()) {
-                Main.replaceLauncher(text_dbLauncherPath.getText(), text_manualLauncherPath.getText(), Objects.requireNonNull(combobox_clientType.getSelectedItem()).toString(),  text_cli.getText(), true);
+                Main.replaceLauncher(radio_manual.isSelected(), text_dbLauncherPath.getText(), text_manualLauncherPath.getText(), Objects.requireNonNull(combobox_clientType.getSelectedItem()).toString(),  text_cli.getText(), true);
+                JOptionPane.showMessageDialog(null,
+                        "Launcher replaced successfully",
+                        "Success",
+                        JOptionPane.PLAIN_MESSAGE);
             } else {
-                Main.replaceLauncher(text_dbLauncherPath.getText(), text_manualLauncherPath.getText(), Objects.requireNonNull(combobox_clientType.getSelectedItem()).toString(), "", false);
+                Main.replaceLauncher(radio_manual.isSelected(), text_dbLauncherPath.getText(), text_manualLauncherPath.getText(), Objects.requireNonNull(combobox_clientType.getSelectedItem()).toString(), "", false);
+                JOptionPane.showMessageDialog(null,
+                        "Launcher replaced successfully",
+                        "Success",
+                        JOptionPane.PLAIN_MESSAGE);
             }
-        } catch (IOException ex) {
+        } catch (NoSuchFileException ex) {
+            message = "Could not find: " + ex.getMessage();
             Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
+
+        } catch (Exception ex) {
+            message = ex.getMessage();
+            Logger.getLogger(AppGui.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        if (!message.isEmpty()) {
+            JOptionPane.showMessageDialog(null,
+                    message,
+                    "Failed",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_button_startActionPerformed
 
