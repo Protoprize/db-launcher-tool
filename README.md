@@ -13,9 +13,12 @@ Requirements:
 
 
 ## How to use
-1. Download the latest release from [here]()
+1. Download the latest release from [here](https://github.com/Protoprize/db-launcher-tool/releases/tag/1.0)
 2. Extract both files into the same folder
 3. Open `db-launcher-tool.jar`
 4. Set your settings, and click `Replace launcher`. 
 
    You can now open DreamBot from the Jagex launcher with new accounts.
+
+
+cli-forwarder source can be found [here](https://github.com/Protoprize/db-cli-forwarder)
