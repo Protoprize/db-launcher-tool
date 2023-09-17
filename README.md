@@ -18,4 +18,4 @@ Requirements:
 3. Open `db-launcher-tool.jar`
 4. Set your settings, and click `Replace launcher`. 
 
-   Your client will now be replaced with DreamBot. You can now open DreamBot from the Jagex launcher
+   You can now open DreamBot from the Jagex launcher with new accounts.
