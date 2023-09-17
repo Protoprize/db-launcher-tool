@@ -8,7 +8,7 @@
 ## Requirements
 - Java 11 - [Direct download](https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.20.1%2B1/OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.msi)
 - Have opened Dreambot at least once
-- Have the new Jagex launcher installed and setup alongside either [RuneLite](https://runelite.net/)[^1] or [HDOS](https://hdos.dev/)[^1].
+- Have the new Jagex launcher installed and setup alongside either [RuneLite](https://runelite.net/) [^1] or [HDOS](https://hdos.dev/) [^1].
 - Must be running on **Windows**. No Mac/Linux support.
 [^1]: This will replace the chosen client with DreamBot. If you want to use either one again, you will need to reinstall it.
 
