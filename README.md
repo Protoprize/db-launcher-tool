@@ -7,9 +7,9 @@
 ## Requirements
 - Java 11
 - Have opened Dreambot at least once
-- Have the new Jagex launcher installed and setup alongside either RuneLite* or HDOS*.
+- Have the new Jagex launcher installed and setup alongside either RuneLite[^1] or HDOS[^1].
 
-*NOTE: This will replace the chosen client with DreamBot. If you want to use either one again, you will need to reinstall it.
+[^1]: This will replace the chosen client with DreamBot. If you want to use either one again, you will need to reinstall it.
 
 
 
@@ -22,8 +22,8 @@
    You can now open DreamBot from the Jagex launcher with new runescape accounts.
 
 
-cli-forwarder source can be found [here](https://github.com/Protoprize/db-cli-forwarder)
-
 
 ---
-RuneScape is a registered trademark of Jagex Ltd. Use of this project is not endorsed or recommended by Jagex Ltd. 
+
+
+cli-forwarder source can be found [here](https://github.com/Protoprize/db-cli-forwarder)
